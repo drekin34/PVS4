@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "Перегляд файлів";
+}
+
+<h2>Список файлів</h2>
+
+<ul>
+    @foreach (var file in Model)
+    {
+        var fileName = System.IO.Path.GetFileName(file);
+        <li>
+            <a asp-controller="FileUpload" asp-action="ViewFile" asp-route-fileName="@fileName">@fileName</a>
+        </li>
+    }
+</ul>
